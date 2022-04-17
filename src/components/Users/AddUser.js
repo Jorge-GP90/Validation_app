@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 
 import classes from "./AddUser.module.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
@@ -20,7 +20,10 @@ const AddUser = () => {
       return;
     }
 
-    console.log(enteredUsername, enteredAge);
+    // pass the state from other components
+    // console.log(enteredUsername, enteredAge);   previous display
+    props.onAddUser(enteredUsername, enteredAge);
+
     // for reset --> needs to add a value in the input element
     setEnteredUsername("");
     setEnteredAge("");
